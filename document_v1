@@ -25,5 +25,7 @@ function GetData($AKSI,$FILTER=""){
         return $output;
 }
 
-
+header('Content-Type: application/json');  	
+echo json_encode($result['slide']->data,JSON_PRETTY_PRINT); 
+die();
 

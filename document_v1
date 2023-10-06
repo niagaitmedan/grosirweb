@@ -1,0 +1,31 @@
+LINK REST API PANEL GROSIR WEB
+
+https://panel.grosirweb.co.id/RestApi/?sn={YOUR SN}&aksi={MODUL AKSI}
+
+
+
+MODUL AKSI = aksi
+
+getkategori 
+getcontent
+getcontent_kategori => filter
+getcontent_meta_url => filter
+getcontent_id => filter
+
+
+function GetData($AKSI,$FILTER=""){
+    	      $SN     = "SN-MC41MDM2MDM5NDg3MzcxMjM=";
+    	    
+    	      $URL    = "https://panel.grosirweb.co.id/RestApi/?sn=$SN&aksi=$AKSI&filter=$FILTER";
+    	      $ch     = curl_init(); 
+            curl_setopt($ch, CURLOPT_URL, $URL);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+            $output = json_decode(curl_exec($ch)); 
+            curl_close($ch);      
+        
+            
+            return $output;
+}
+
+
+
